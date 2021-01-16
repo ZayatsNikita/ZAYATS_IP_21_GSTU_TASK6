@@ -59,7 +59,8 @@ create table UniversitySessionInfo
 	ExamInfoId int not null,
 	GroupId int not null
 
-	constraint PK_UniversitySessionInfoPk Primary key(ExamInfoId,GroupId),
+	constraint PK_UniversitySessionInfoPk Primary key(Id),
+	constraint UQ_UniversitySessionInfoQu Unique(ExamInfoId,GroupId),
 	constraint FK_ExamDateFkEXAM foreign key(ExamInfoId) references ExamInfo(Id) on delete cascade on update cascade,
 	constraint FK_ExamDateFkGROUP foreign key(GroupId) references GroupOfStudent(Id) on delete cascade on update cascade
 

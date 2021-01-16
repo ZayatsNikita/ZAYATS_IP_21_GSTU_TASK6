@@ -9,10 +9,17 @@ namespace University
     public class Student
     {
 
+        private int id;
+
+        public void SetId(int idValue)
+        {
+            id = idValue;
+        }
+        public int GetId() => id;
         public char Sex { get; set; }
         public string Fio { get; set; }
         public DateTime BirthDay { get; set; }
 
-        public GroupOfStudent Group {get;set;}
+        public int GroupId {get;set;}
     }
 }

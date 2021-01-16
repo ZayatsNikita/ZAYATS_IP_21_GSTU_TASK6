@@ -8,7 +8,14 @@ namespace University
 {
     public class GroupOfStudent
     {
-        GroupOfStudent(string nameOfGroup)
+
+        private int id;
+        public void SetId(int idValue)
+        {
+            id = idValue;
+        }
+        public int GetId() => id;
+        public GroupOfStudent(string nameOfGroup)
         {
             NameOfGroup = nameOfGroup;
         }

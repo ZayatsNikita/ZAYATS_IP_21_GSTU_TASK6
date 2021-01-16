@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAOLib.TransactSqlDao
+namespace UniversityDatabaseWithAdo
 {
-    class Class3
+    class Program
     {
     }
 }
