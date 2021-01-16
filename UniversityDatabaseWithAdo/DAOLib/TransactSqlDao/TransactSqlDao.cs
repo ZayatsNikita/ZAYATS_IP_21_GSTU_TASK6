@@ -62,7 +62,7 @@ namespace DAOLib.SqlDao
             }
 
             readAllComandText = $"select {builderForName} from {typeof(T).Name}";
-            createItemComandText = $"insert into {typeof(T).Name} ({builderForName}) values ({builderForParams})";
+            createItemComandText = $"insert into {typeof(T).Name} ({builderForName}) values ({builderForParams}) select SCOPE_IDENTITY()";
             
             builderForName.Clear();
             builderForParams.Clear();
@@ -83,7 +83,7 @@ namespace DAOLib.SqlDao
             command.Parameters.AddRange(newParameters);
         }
 
-        public void Create(T element)
+        public object Create(T element)
         {
             for (int i = 0; i < parameters.Length; i++)
             {
@@ -91,7 +91,7 @@ namespace DAOLib.SqlDao
                 
             }
             command.CommandText = createItemComandText;
-            command.ExecuteNonQuery();
+            return command.ExecuteScalar();
         }
 
         public void Delete(T element)
