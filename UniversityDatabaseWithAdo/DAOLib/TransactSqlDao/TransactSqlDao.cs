@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
+using System.Text;
 
 namespace DAOLib.SqlDao
 {
-    class TransactSqlDao<T> : IDao<T> where T: new()
+    public class TransactSqlDao<T> : IDao<T> where T: new()
     {
         private static TransactSqlDao<T> instance;
         private static SqlCommand command;
@@ -17,8 +15,6 @@ namespace DAOLib.SqlDao
         private static SqlParameter[] newParameters;
         private static PropertyInfo[] propertys;
 
-
-        private string[] columnsName;
         
         private string createItemComandText;
         private string deleteItemComandText;
@@ -36,48 +32,20 @@ namespace DAOLib.SqlDao
             
             parameters = new SqlParameter[propertys.Length];
             newParameters = new SqlParameter[propertys.Length];
-
-            columnsName = new string[propertys.Length];
-          
-            StringBuilder builderForName = new StringBuilder();
-            StringBuilder builderForParams = new StringBuilder();
-
+            
             for (int i = 0; i < propertys.Length; i++)
             {
-                columnsName[i] = propertys[i].Name;
-                
                 parameters[i] = new SqlParameter();
                 newParameters[i] = new SqlParameter();
 
-                parameters[i].ParameterName = "@" + columnsName[i];
+                parameters[i].ParameterName = "@" + propertys[i].Name;
                 newParameters[i].ParameterName = parameters[i].ParameterName + "New";
             }
 
-            builderForName.Append(columnsName[0]);
-            builderForParams.Append("@" + columnsName[0]);
-            for (int i = 1; i < columnsName.Length; i++)
-            {
-                builderForName.Append(", " + columnsName[i]);
-                builderForParams.Append(", @" + columnsName[0]);
-            }
-
-            readAllComandText = $"select {builderForName} from {typeof(T).Name}";
-            createItemComandText = $"insert into {typeof(T).Name} ({builderForName}) values ({builderForParams}) select SCOPE_IDENTITY()";
-            
-            builderForName.Clear();
-            builderForParams.Clear();
-
-            builderForName.Append($"{columnsName[0]} = {parameters[0].ParameterName}");
-            builderForParams.Append($"{columnsName[0]} = {parameters[0].ParameterName+"New"}");
-            for (int i = 1; i < columnsName.Length; i++)
-            {
-                builderForName.Append($" and {columnsName[i]} = {parameters[i].ParameterName}");
-                builderForParams.Append($"{columnsName[i]} = {newParameters[i].ParameterName}");
-
-            }
-
-            deleteItemComandText = $"Delete {typeof(T).Name} where {builderForName}";
-            updateComandText = $"update {typeof(T).Name} set {builderForParams} where {builderForName}";
+            createItemComandText = GetComandForTransactSql.GetCreateItemComand(typeof(T).Name,propertys);
+            deleteItemComandText = GetComandForTransactSql.GetDeleteItemComand(typeof(T).Name,propertys);
+            updateComandText = GetComandForTransactSql.GetUpdateItemComand(typeof(T).Name,propertys);
+            readAllComandText = GetComandForTransactSql.GetReadAllComand(typeof(T).Name,propertys);
 
             command.Parameters.AddRange(parameters);
             command.Parameters.AddRange(newParameters);
@@ -85,22 +53,27 @@ namespace DAOLib.SqlDao
 
         public object Create(T element)
         {
+            command.Parameters.Clear();
             for (int i = 0; i < parameters.Length; i++)
             {
                 parameters[i].Value = propertys[i].GetValue(element,null);
                 
             }
             command.CommandText = createItemComandText;
-            return command.ExecuteScalar();
+            command.Parameters.AddRange(parameters);
+            object obj =  command.ExecuteScalar();
+            return obj;
         }
 
         public void Delete(T element)
         {
+            command.Parameters.Clear();
             for (int i = 0; i < parameters.Length; i++)
             {
                 parameters[i].Value = propertys[i].GetValue(element, null);
             }
             command.CommandText = deleteItemComandText;
+            command.Parameters.AddRange(parameters);
             command.ExecuteNonQuery();
         }
 
@@ -108,6 +81,8 @@ namespace DAOLib.SqlDao
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
+                command.Parameters.Clear();
+               
                 List<T> result = new List<T>();
                 SqlDataReader reader = null;
                 try
@@ -130,10 +105,7 @@ namespace DAOLib.SqlDao
                 }
                 finally
                 {
-                    if (reader != null)
-                    {
-                        reader.Close();
-                    }
+                    reader?.Close();
                 }
                 return result;
 
@@ -146,11 +118,14 @@ namespace DAOLib.SqlDao
 
         public void Update(T oldElement, T newElement)
         {
+            command.Parameters.Clear();
             for (int i = 0; i < parameters.Length; i++)
             {
                 parameters[i].Value = propertys[i].GetValue(oldElement, null);
                 newParameters[i].Value = propertys[i].GetValue(newElement, null);
             }
+            command.Parameters.AddRange(parameters);
+            command.Parameters.AddRange(newParameters);
             command.CommandText = updateComandText;
             command.ExecuteNonQuery();
         }
@@ -163,8 +138,7 @@ namespace DAOLib.SqlDao
                 {
                     TransactSqlDao<T>.connection = connection;
                     TransactSqlDao<T>.connection.Open();
-                    TransactSqlDao<T>.instance = new TransactSqlDao<T>(connection);
-                    
+                    TransactSqlDao<T>.instance = new TransactSqlDao<T>(connection);         
                 }
                 catch (SqlException ex)
                 {
@@ -174,7 +148,6 @@ namespace DAOLib.SqlDao
             }
             return TransactSqlDao<T>.instance;
         }
-
 
         public void CloseConnect()
         {

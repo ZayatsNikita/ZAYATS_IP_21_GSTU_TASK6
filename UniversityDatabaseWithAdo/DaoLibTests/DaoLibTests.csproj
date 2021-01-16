@@ -47,6 +47,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TransatSqlDaoTest.cs" />
@@ -54,6 +56,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAOLib\DAOLib.csproj">
+      <Project>{b05dfa19-fd5d-48aa-bc22-92e630e68d6b}</Project>
+      <Name>DAOLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniversityDatabaseWithAdo\University.csproj">
+      <Project>{e2943ebd-2c46-45bf-a958-877343031503}</Project>
+      <Name>University</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
