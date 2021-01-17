@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Exam.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="GroupOfStudent.cs" />
+    <Compile Include="ModelsInfo\UniversitySessionInfo.cs" />
+    <Compile Include="ModelsInfo\ExamInfo.cs" />
+    <Compile Include="ModelsInfo\StudentSessionIfno.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\GroupOfStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

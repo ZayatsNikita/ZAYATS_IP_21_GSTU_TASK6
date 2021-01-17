@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOLib", "DAOLib\DAOLib.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaoLibTests", "DaoLibTests\DaoLibTests.csproj", "{C46C6130-77B5-41F1-B9C5-4F224F95704C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractionOfTheDatabaseAndTheUniversity", "InteractionOfTheDatabaseAndTheUniversity\InteractionOfTheDatabaseAndTheUniversity.csproj", "{7B52B6AD-1FC2-4527-A617-F4C2DE52F6F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractionOfTbeDataBaseAndTheUniversityTest", "InteractionOfTbeDataBaseAndTheUniversityTest\InteractionOfTbeDataBaseAndTheUniversityTest.csproj", "{B2F277A9-E188-48AF-9D32-58FB6DE9E3EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{C46C6130-77B5-41F1-B9C5-4F224F95704C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C46C6130-77B5-41F1-B9C5-4F224F95704C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C46C6130-77B5-41F1-B9C5-4F224F95704C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B52B6AD-1FC2-4527-A617-F4C2DE52F6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B52B6AD-1FC2-4527-A617-F4C2DE52F6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B52B6AD-1FC2-4527-A617-F4C2DE52F6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B52B6AD-1FC2-4527-A617-F4C2DE52F6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F277A9-E188-48AF-9D32-58FB6DE9E3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F277A9-E188-48AF-9D32-58FB6DE9E3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F277A9-E188-48AF-9D32-58FB6DE9E3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F277A9-E188-48AF-9D32-58FB6DE9E3EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
