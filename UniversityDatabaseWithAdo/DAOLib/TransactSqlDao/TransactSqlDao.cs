@@ -25,11 +25,21 @@ namespace DAOLib.SqlDao
         private TransactSqlDao(SqlConnection connection)
         {
 
+            if(connection == null)
+            {
+                throw new NullReferenceException();
+            }
             command = new SqlCommand();
             command.Connection = connection;
            
             propertys = typeof(T).GetProperties();
             
+            if(propertys.Length==0)
+            {
+                throw new ArgumentException("This class does not contain public properties");
+            }
+
+
             parameters = new SqlParameter[propertys.Length];
             newParameters = new SqlParameter[propertys.Length];
             
@@ -53,34 +63,58 @@ namespace DAOLib.SqlDao
 
         public object Create(T element)
         {
-            command.Parameters.Clear();
-            for (int i = 0; i < parameters.Length; i++)
+            if (connection.State == System.Data.ConnectionState.Open)
             {
-                parameters[i].Value = propertys[i].GetValue(element,null);
-                
+                if (element == null)
+                {
+                    throw new NullReferenceException();
+                }
+                command.Parameters.Clear();
+                for (int i = 0; i < parameters.Length; i++)
+                {
+                    parameters[i].Value = propertys[i].GetValue(element, null);
+
+                }
+                command.CommandText = createItemComandText;
+                command.Parameters.AddRange(parameters);
+                object obj = command.ExecuteScalar();
+                return obj;
             }
-            command.CommandText = createItemComandText;
-            command.Parameters.AddRange(parameters);
-            object obj =  command.ExecuteScalar();
-            return obj;
+            else
+            {
+                throw new InvalidOperationException();
+            }
         }
 
         public void Delete(T element)
         {
-            command.Parameters.Clear();
-            for (int i = 0; i < parameters.Length; i++)
+            if (connection.State == System.Data.ConnectionState.Open)
             {
-                parameters[i].Value = propertys[i].GetValue(element, null);
+                if (element == null)
+                {
+                    throw new NullReferenceException();
+                }
+                command.Parameters.Clear();
+                for (int i = 0; i < parameters.Length; i++)
+                {
+                    parameters[i].Value = propertys[i].GetValue(element, null);
+                }
+                command.CommandText = deleteItemComandText;
+                command.Parameters.AddRange(parameters);
+                command.ExecuteNonQuery();
             }
-            command.CommandText = deleteItemComandText;
-            command.Parameters.AddRange(parameters);
-            command.ExecuteNonQuery();
+            else
+            {
+                throw new InvalidOperationException();
+            }
         }
 
         public List<T> ReadAll()
         {
+
             if (connection.State == System.Data.ConnectionState.Open)
             {
+
                 command.Parameters.Clear();
                
                 List<T> result = new List<T>();
@@ -118,16 +152,27 @@ namespace DAOLib.SqlDao
 
         public void Update(T oldElement, T newElement)
         {
-            command.Parameters.Clear();
-            for (int i = 0; i < parameters.Length; i++)
+            if (connection.State == System.Data.ConnectionState.Open)
             {
-                parameters[i].Value = propertys[i].GetValue(oldElement, null);
-                newParameters[i].Value = propertys[i].GetValue(newElement, null);
+                if(oldElement== null || newElement==null)
+                {
+                    throw new NullReferenceException();
+                }
+                command.Parameters.Clear();
+                for (int i = 0; i < parameters.Length; i++)
+                {
+                    parameters[i].Value = propertys[i].GetValue(oldElement, null);
+                    newParameters[i].Value = propertys[i].GetValue(newElement, null);
+                }
+                command.Parameters.AddRange(parameters);
+                command.Parameters.AddRange(newParameters);
+                command.CommandText = updateComandText;
+                command.ExecuteNonQuery();
             }
-            command.Parameters.AddRange(parameters);
-            command.Parameters.AddRange(newParameters);
-            command.CommandText = updateComandText;
-            command.ExecuteNonQuery();
+            else
+            {
+                throw new InvalidOperationException();
+            }
         }
 
         public static TransactSqlDao<T> GetDao(SqlConnection connection)
@@ -140,7 +185,7 @@ namespace DAOLib.SqlDao
                     TransactSqlDao<T>.connection.Open();
                     TransactSqlDao<T>.instance = new TransactSqlDao<T>(connection);         
                 }
-                catch (SqlException ex)
+                catch (Exception ex)
                 {
                     TransactSqlDao<T>.instance = null;
                     throw ex;
@@ -154,6 +199,10 @@ namespace DAOLib.SqlDao
             if (connection.State == System.Data.ConnectionState.Open)
             {
                 connection.Close();
+            }
+            else
+            {
+                throw new InvalidOperationException();
             }
         }
     }

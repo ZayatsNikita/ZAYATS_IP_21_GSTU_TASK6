@@ -1,0 +1,17 @@
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\InterectionWithDaoLeyer.dll
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\InterectionWithDaoLeyer.pdb
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\DAOLib.dll
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\EPPlus.dll
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\UniversityDatabaseWithAdo.dll
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\DAOLib.pdb
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\UniversityDatabaseWithAdo.pdb
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\UniversityDatabaseWithAdo.dll.config
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\EPPlus.xml
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\obj\Debug\InterectionWithDaoLeyer.csprojAssemblyReference.cache
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\obj\Debug\InterectionWithDaoLeyer.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\obj\Debug\InterectionWithDaoLeyer.csproj.CopyComplete
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\obj\Debug\InterectionWithDaoLeyer.dll
+D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\InterectionWithDaoLeyer\obj\Debug\InterectionWithDaoLeyer.pdb

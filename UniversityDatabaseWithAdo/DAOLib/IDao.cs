@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DAOLib
 {
@@ -12,5 +8,6 @@ namespace DAOLib
         public List<T> ReadAll();
         public void Update(T oldElement, T newElement);
         public void Delete(T element);
+        public void CloseConnect();
     }
 }

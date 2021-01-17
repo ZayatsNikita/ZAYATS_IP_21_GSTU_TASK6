@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StudentProcessing.cs" />
     <Compile Include="ModelsInfo\UniversitySessionInfo.cs" />
     <Compile Include="ModelsInfo\ExamInfo.cs" />
     <Compile Include="ModelsInfo\StudentSessionIfno.cs" />
+    <Compile Include="ModelsInfo\CommonInfo.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\GroupOfStudent.cs" />

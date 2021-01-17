@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAOLib.SqlDao;
 using System.Data.SqlClient;
 
 namespace DAOLib.SqlDao
 {
-    class TransactSqlDaoFactory<T> : IDaoFactory<T> where T: new()
+    internal class TransactSqlDaoFactory<T> : IDaoFactory<T> where T: new()
     {
-        public IDao<T> CreateDao(string paramsOfCreating)
+        public IDao<T> CreateDao(string connectionDatabaseString)
         {
-            SqlConnection sqlConnection = new SqlConnection(paramsOfCreating);
+            if(connectionDatabaseString==null)
+            {
+                throw new NullReferenceException();
+            }
+            if (connectionDatabaseString.Length==0)
+            {
+                throw new ArgumentException();
+            }
+            SqlConnection sqlConnection = new SqlConnection(connectionDatabaseString);
             TransactSqlDao<T> transactSqlDao = TransactSqlDao<T>.GetDao(sqlConnection);
             return transactSqlDao;
         }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DAOLib.SqlDao;
-using System.Threading.Tasks;
+﻿using DAOLib.SqlDao;
+using System;
 
 namespace DAOLib
 {
@@ -12,7 +8,12 @@ namespace DAOLib
         IDaoFactory<G>[] daoFactorys = new IDaoFactory<G>[] {new TransactSqlDaoFactory<G>() };
         public IDao<G> CreateDao(string daoTipeName,string paramsOfCreating)
         {
-           return daoFactorys[0].CreateDao(paramsOfCreating);
+            switch(daoTipeName)
+            {
+                case "TransatSqlDao":
+                    return daoFactorys[0].CreateDao(paramsOfCreating);
+            }
+            throw new ArgumentException();
         }
     }
 }

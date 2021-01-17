@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 
 namespace DAOLib.SqlDao
@@ -13,7 +9,6 @@ namespace DAOLib.SqlDao
         private static StringBuilder builderForName = new StringBuilder();
         private static StringBuilder builderForParams = new StringBuilder();
 
-        //Почистил
         internal static string GetDeleteItemComand(string tableName,PropertyInfo[] propertys)
         {
             string result;
@@ -32,7 +27,6 @@ namespace DAOLib.SqlDao
             return result;
         }
 
-        //Почистил
         internal static string GetCreateItemComand(string tableName, PropertyInfo[] propertys)
         {
 
@@ -57,7 +51,7 @@ namespace DAOLib.SqlDao
 
             return result;
         }
-        //Почистил
+        
         internal static string GetUpdateItemComand(string tableName, PropertyInfo[] propertys)
         {
 

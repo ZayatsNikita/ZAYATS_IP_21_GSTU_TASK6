@@ -32,11 +32,7 @@ namespace University
                 {
                     throw new NullReferenceException();
                 }
-                if (value == "M" || value == "F")
-                {
-                    _sex = value;
-                }
-                throw new ArgumentException();
+                _sex = value;               
             }
         }
         public DateTime BirthDay { get; set; }
