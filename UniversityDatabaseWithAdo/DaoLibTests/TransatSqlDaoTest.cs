@@ -10,11 +10,12 @@ namespace DaoLibTests
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////                                           !!!ATTENTION -- 1!!!                                               //////
     ///////To work correctly, you need to have a database created and populated with scripts from the same repository    //////
-    ///////                     The scripts are located in the scripts for database deployment folder                    //////
+    ///////                     The scripts are located in "the scripts for database deployment" folder                  //////
     ///////                                           !!!ATTENTION -- 2!!!                                               //////                       
-    ///////If necessary change the database "connectionString" in the static constructor of the TransatSqlDaoTest class  //////
-    ///////                                           !!!ATTENTION -- 3!!!                                               //////
-    ///////You alse have to change connectionString in InteractionOfComomnInfoAndDatabseBaseTests class and  //////
+    ///////If necessary change the database "connectionString" ConnectionString.connectionString                         //////
+    ///////ConnectionString.connectionString used in classes: TransatSqlDaoTest, TransatSqlDaoFactoryTests,              //////
+    ///////                                          InteractionOfComomnInfoAndDatabseBaseTests.                         //////
+    ///////                                                                                                              //////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     [TestClass]

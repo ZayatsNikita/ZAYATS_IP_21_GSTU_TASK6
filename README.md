@@ -1,2 +1,0 @@
-# ZAYATS_IP_21_GSTU_TASK6
- 
