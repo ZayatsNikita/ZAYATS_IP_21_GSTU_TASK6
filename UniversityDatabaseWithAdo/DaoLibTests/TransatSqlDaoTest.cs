@@ -1,19 +1,12 @@
-﻿using System;
+﻿using DAOLib;
+using DAOLib.SqlDao;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
-using DAOLib.SqlDao;
-using DAOLib;
 using University;
 namespace DaoLibTests
 {
-
-
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////                                           !!!ATTENTION -- 1!!!                                               //////
     ///////To work correctly, you need to have a database created and populated with scripts from the same repository    //////
@@ -44,20 +37,17 @@ namespace DaoLibTests
                     DaoFactory<Exam> daoFactoryForExam = new DaoFactory<Exam>();
                     IDao<Exam> daoForExam = daoFactoryForExam.CreateDao("TransatSqlDao", connectionString);
                     List<Exam> list = daoForExam.ReadAll();
-                    actual = list.Where(x => x.TypeOfExam == "Exam" && x.NameOfExam == "MMA").Count() == 1 && list.Where(x => x.TypeOfExam == "Test" && x.NameOfExam == "Mechanics").Count() == 1;
-                    
+                    actual = list.Count(x => x.TypeOfExam == "Exam" && x.NameOfExam == "MMA") == 1 && list.Count(x => x.TypeOfExam == "Test" && x.NameOfExam == "Mechanics") == 1;
                     break;
                 case 2:
                     DaoFactory<GroupOfStudent> daoFactoryForGroup = new DaoFactory<GroupOfStudent>();
                     IDao<GroupOfStudent> daoForGroup = daoFactoryForGroup.CreateDao("TransatSqlDao", connectionString);
                     List<GroupOfStudent> groups = daoForGroup.ReadAll();
-                    actual = groups.Where(x => x.NameOfGroup == "IP-21").Count() == 1 && groups.Where(x => x.NameOfGroup == "ML-42").Count() == 1;
-                    
+                    actual = groups.Count(x => x.NameOfGroup == "IP-21") == 1 && groups.Count(x => x.NameOfGroup == "ML-42") == 1;
                     break;
             }
-
             Assert.IsTrue(actual);
-         
+
         }
 
         [DataTestMethod]
@@ -66,7 +56,6 @@ namespace DaoLibTests
         [DataRow(3)]
         public void CreateTest_SetDataToDatabase_NewElementInDatabase(int mode)
         {
-            GroupOfStudent group = null;
             bool actual = false;
             switch (mode)
             {
@@ -74,52 +63,58 @@ namespace DaoLibTests
                     Exam spanish = new Exam() { NameOfExam = "Chiniess", TypeOfExam = "Exam" };
                     DaoFactory<Exam> daoFactoryForExam = new DaoFactory<Exam>();
                     IDao<Exam> daoForExam = daoFactoryForExam.CreateDao("TransatSqlDao", connectionString);
-                    spanish.Id = Convert.ToInt32(daoForExam.Create(spanish));
                     List<Exam> list = daoForExam.ReadAll();
-                    actual = list.Count(x=>x.Id == spanish.Id && x.NameOfExam == "Chiniess" && x.TypeOfExam == "Exam")==1;
-                    
+                    actual = list.Count(x => x.NameOfExam == "Chiniess") == 0;
+                    spanish.Id = Convert.ToInt32(daoForExam.Create(spanish));
+                    list = daoForExam.ReadAll();
+                    actual = actual && list.Count(x => x.Id == spanish.Id && x.NameOfExam == "Chiniess" && x.TypeOfExam == "Exam") == 1;
+                    daoForExam.Delete(spanish);
                     break;
-                case 2:               
-                    group = new GroupOfStudent() {NameOfGroup = "ZK-37" };
+                case 2:
+                    GroupOfStudent group = new GroupOfStudent() { NameOfGroup = "ZK-37" };
                     DaoFactory<GroupOfStudent> daoFactoryForGroup = new DaoFactory<GroupOfStudent>();
                     IDao<GroupOfStudent> daoForGroup = daoFactoryForGroup.CreateDao("TransatSqlDao", connectionString);
-                    group.Id = Convert.ToInt32(daoForGroup.Create(group));
                     List<GroupOfStudent> groups = daoForGroup.ReadAll();
-                    actual = groups.Count(x=>x.Id == group.Id && x.NameOfGroup == "ZK-37") ==1;
-                    
+                    actual = groups.Count(x => x.NameOfGroup == "ZK-37") == 0;
+                    group.Id = Convert.ToInt32(daoForGroup.Create(group));
+                    groups = daoForGroup.ReadAll();
+                    actual = actual && groups.Count(x => x.Id == group.Id && x.NameOfGroup == "ZK-37") == 1;
+                    daoForGroup.Delete(group);
+
                     break;
                 case 3:
-                    Student student = new Student() {Sex = "F", BirthDay= DateTime.Parse("2002-07-09"), FIO ="Artem Nikita Konstantinovna", GroupId = 3 };
+                    Student student = new Student() { Sex = "F", BirthDay = DateTime.Parse("2002-07-09"), FIO = "Artem Nikita Konstantinovna", GroupId = 2 };
                     DaoFactory<Student> daoFactoryForStudent = new DaoFactory<Student>();
                     IDao<Student> daoForStudent = daoFactoryForStudent.CreateDao("TransatSqlDao", connectionString);
-                    student.Id = Convert.ToInt32(daoForStudent.Create(student));
                     List<Student> students = daoForStudent.ReadAll();
-                    actual = students.Count(x=>x.Id == student.Id && x.Sex == student.Sex && x.FIO == student.FIO && x.GroupId == student.GroupId)==1;
-                    
+                    actual = students.Count(x => x.FIO == "Artem Nikita Konstantinovna") == 0;
+                    student.Id = Convert.ToInt32(daoForStudent.Create(student));
+                    students = daoForStudent.ReadAll();
+                    actual = actual && students.Count(x => x.Id == student.Id && x.Sex == student.Sex && x.FIO == student.FIO && x.GroupId == student.GroupId) == 1;
+                    daoForStudent.Delete(student);
                     break;
             }
             Assert.IsTrue(actual);
         }
 
-        
+
         [DataTestMethod]
         [DataRow(1)]
         [DataRow(2)]
         public void DeleteTest_ExsistElementInDatase_OneRowWillBeRemovedFromTheTableInTheDatabase(int mode)
         {
-            GroupOfStudent group = null;
             bool actual = false;
             switch (mode)
             {
                 case 1:
-                    Student student = new Student() { Sex = "F", BirthDay = DateTime.Parse("2002-07-09"), FIO = "Akrickiys Dabb tt", GroupId = 3, Id = 4 };
+
+                    Student student = new Student() { Sex = "F", BirthDay = DateTime.Parse("2002-07-09"), FIO = "Akrickiys Dabb tt", GroupId = 2, Id = 4 };
                     DaoFactory<Student> daoFactoryForStudent = new DaoFactory<Student>();
                     IDao<Student> daoForStudent = daoFactoryForStudent.CreateDao("TransatSqlDao", connectionString);
                     student.Id = Convert.ToInt32(daoForStudent.Create(student));
                     daoForStudent.Delete(student);
                     List<Student> students = daoForStudent.ReadAll();
-                    actual = students.Count(x=> x.FIO == student.FIO)==0;
-                    
+                    actual = students.Count(x => x.FIO == student.FIO) == 0;
                     break;
                 case 2:
                     Exam exam = new Exam() { NameOfExam = "hhhhhhh", TypeOfExam = "Exam", Id = 3 };
@@ -128,8 +123,7 @@ namespace DaoLibTests
                     exam.Id = Convert.ToInt32(daoForExam.Create(exam));
                     daoForExam.Delete(exam);
                     List<Exam> list = daoForExam.ReadAll();
-                    actual = list.Count(x => x.NameOfExam == "hhhhhhh" && x.TypeOfExam == "Exam")==0;
-                    
+                    actual = list.Count(x => x.NameOfExam == exam.NameOfExam && x.TypeOfExam == exam.TypeOfExam) == 0;
                     break;
             }
             Assert.IsTrue(actual);
@@ -139,7 +133,6 @@ namespace DaoLibTests
         public void UpdateTest_ExsistRowInDatase_RowWillBeChenged()
         {
             bool actual = false;
-
             GroupOfStudent oldGroup = new GroupOfStudent() { NameOfGroup = "GIP-21" };
             GroupOfStudent newGroup = new GroupOfStudent() { NameOfGroup = "ITI-22" };
             DaoFactory<GroupOfStudent> daoFactoryForGroup = new DaoFactory<GroupOfStudent>();
@@ -151,8 +144,7 @@ namespace DaoLibTests
             daoForGroup.Update(oldGroup, newGroup);
             groups = daoForGroup.ReadAll();
             actual = actual && groups.Exists(x => x.NameOfGroup == "ITI-22") && !groups.Exists(x => x.NameOfGroup == "GIP-21");
-            
-
+            daoForGroup.Delete(newGroup);
             Assert.IsTrue(actual);
         }
 
@@ -169,14 +161,11 @@ namespace DaoLibTests
                     Student student = new Student() { Sex = "F", BirthDay = DateTime.Parse("2002-07-09"), FIO = "Tarelko Denis Victorivich", GroupId = 3, Id = 4 };
                     DaoFactory<Student> daoFactoryForStudent = new DaoFactory<Student>();
                     IDao<Student> daoForStudent = daoFactoryForStudent.CreateDao("TransatSqlDao", connectionString);
-                    
                     List<Student> students = daoForStudent.ReadAll();
                     actual = students.Count();
-       
                     daoForStudent.Delete(student);
                     students = daoForStudent.ReadAll();
                     actual = students.Count - actual;
-                    
                     break;
                 case 2:
                     List<Exam> list;
@@ -185,14 +174,13 @@ namespace DaoLibTests
                     IDao<Exam> daoForExam = daoFactoryForExam.CreateDao("TransatSqlDao", connectionString);
 
                     list = daoForExam.ReadAll();
-                    actual = list.Count;    
+                    actual = list.Count;
                     daoForExam.Delete(russian);
                     list = daoForExam.ReadAll();
                     actual = actual - list.Count;
-                    
                     break;
             }
-            Assert.AreEqual(actual,expected);
+            Assert.AreEqual(actual, expected);
         }
 
 
@@ -210,11 +198,10 @@ namespace DaoLibTests
                     DaoFactory<Student> daoFactoryForStudent = new DaoFactory<Student>();
                     IDao<Student> daoForStudent = daoFactoryForStudent.CreateDao("TransatSqlDao", connectionString);
                     List<Student> students = daoForStudent.ReadAll();
-                    actual = students.Where(x => x.FIO == "jjjjjjj Alex Igoreevna" && x.BirthDay == DateTime.Parse("2002-10-01")).Count() == 0 && students.Where(x => x.FIO == "Domorad Maksim Vladimirovich" && x.BirthDay == DateTime.Parse("2002-07-09")).Count() == 0;
+                    actual = students.Count(x => x.FIO == "jjjjjjj Alex Igoreevna" && x.BirthDay == DateTime.Parse("2002-10-01")) == 0 && students.Count(x => x.FIO == "Domorad Maksim Vladimirovich" && x.BirthDay == DateTime.Parse("2002-07-09")) == 0;
                     daoForStudent.Update(studentOld, studentNew);
                     students = daoForStudent.ReadAll();
-                    actual = actual && students.Where(x => x.FIO == "jjjjjjj Alex Igoreevna" && x.BirthDay == DateTime.Parse("2002-10-01")).Count() == 0 && students.Where(x => x.FIO == "Domorad Maksim Vladimirovich" && x.BirthDay == DateTime.Parse("2002-07-09")).Count() == 0;
-                    
+                    actual = actual && students.Count(x => x.FIO == "jjjjjjj Alex Igoreevna" && x.BirthDay == DateTime.Parse("2002-10-01")) == 0 && students.Count(x => x.FIO == "Domorad Maksim Vladimirovich" && x.BirthDay == DateTime.Parse("2002-07-09")) == 0;
                     break;
                 case 2:
                     Exam oldExam = new Exam() { NameOfExam = "Grecks", TypeOfExam = "Test", Id = 2 };
@@ -223,16 +210,145 @@ namespace DaoLibTests
                     IDao<Exam> daoForExam = daoFactoryForExam.CreateDao("TransatSqlDao", connectionString);
                     List<Exam> list = daoForExam.ReadAll();
 
-                    actual = list.Where(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Test").Count() == 0 && list.Where(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Exam").Count() == 0;
+                    actual = list.Count(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Test") == 0 && list.Count(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Exam") == 0;
                     daoForExam.Update(oldExam, newExam);
                     list = daoForExam.ReadAll();
-                    actual = actual && list.Where(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Test").Count() == 0 && list.Where(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Exam").Count() == 0;
-                    
+                    actual = actual && list.Count(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Test") == 0 && list.Count(x => x.NameOfExam == "Grecks" && x.TypeOfExam == "Exam") == 0;
                     break;
             }
             Assert.IsTrue(actual);
         }
 
+
+        [TestMethod]
+        public void ReadAll_PerformingOperationsWithClosedConnection_InvalidOperationException()
+        {
+            bool actual = false;
+            TransactSqlDao<List<string>> dao = TransactSqlDao<List<string>>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            dao.CloseConnect();
+            try
+            {
+                dao.ReadAll();
+            }
+            catch(InvalidOperationException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void UpdateTest_PerformingOperationsWithClosedConnection_InvalidOperationException()
+        {
+            bool actual = false;
+            TransactSqlDao<List<int>> dao = TransactSqlDao<List<int>>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            dao.CloseConnect();
+            try
+            {
+                dao.Update(null,null);
+            }
+            catch (InvalidOperationException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void CreateTest_PerformingOperationsWithClosedConnection_InvalidOperationException()
+        {
+            bool actual = false;
+            TransactSqlDao<System.Text.StringBuilder> dao = TransactSqlDao<System.Text.StringBuilder>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            dao.CloseConnect();
+            try
+            {
+                dao.Create(null);
+            }
+            catch (InvalidOperationException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void DeleteTest_PerformingOperationsWithClosedConnection_InvalidOperationException()
+        {
+            bool actual = false;
+            TransactSqlDao<List<double>> dao = TransactSqlDao<List<double>>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            dao.CloseConnect();
+            try
+            {
+                dao.Delete(null);
+            }
+            catch (InvalidOperationException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
+
+
+        [TestMethod]
+        public void UpdateTest_NullIsUseAsObject_ArgumentNullExceptionThrown()
+        {
+            bool actual = false;
+            TransactSqlDao<List<float>> dao = TransactSqlDao<List<float>>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            try
+            {
+                dao.Update(null, null);
+            }
+            catch (ArgumentNullException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void CreateTest__NullIsUseAsObject_ArgumentNullExceptionThrown()
+        {
+            bool actual = false;
+            TransactSqlDao<List<float>> dao = TransactSqlDao<List<float>>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            try
+            {
+                dao.Create(null);
+            }
+            catch (ArgumentNullException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void DeleteTest_NullIsUseAsObject_ArgumentNullExceptionThrown()
+        {
+            bool actual = false;
+            TransactSqlDao<List<float>> dao = TransactSqlDao<List<float>>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            try
+            {
+                dao.Delete(null);
+            }
+            catch (ArgumentNullException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void GetDaoTests_UsingClassWithoutPUblicProperties_ArgumentExceptionsThrown()
+        {
+            bool actual = false;
+            TransactSqlDao<List<float>> dao = TransactSqlDao<List<float>>.GetDao(new System.Data.SqlClient.SqlConnection(connectionString));
+            try
+            {
+                dao.Delete(null);
+            }
+            catch (ArgumentNullException)
+            {
+                actual = true;
+            }
+            Assert.IsTrue(actual);
+        }
 
     }
 }

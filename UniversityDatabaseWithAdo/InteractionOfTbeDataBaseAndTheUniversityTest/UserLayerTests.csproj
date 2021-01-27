@@ -60,14 +60,6 @@
       <Project>{b05dfa19-fd5d-48aa-bc22-92e630e68d6b}</Project>
       <Name>DAOLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InteractionOfTheDatabaseAndTheUniversity\CommonInfoXlsxFileManager.csproj">
-      <Project>{7b52b6ad-1fc2-4527-a617-f4c2de52f6f4}</Project>
-      <Name>CommonInfoXlsxFileManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InterectionWithDaoLeyer\InterectionWithDaoLeyer.csproj">
-      <Project>{bee124bc-e461-4505-955d-d1604343f626}</Project>
-      <Name>InterectionWithDaoLeyer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UniversityDatabaseWithAdo\University.csproj">
       <Project>{e2943ebd-2c46-45bf-a958-877343031503}</Project>
       <Name>University</Name>

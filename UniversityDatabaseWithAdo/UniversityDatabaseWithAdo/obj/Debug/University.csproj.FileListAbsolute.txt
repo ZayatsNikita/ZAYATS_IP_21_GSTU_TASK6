@@ -5,3 +5,18 @@ D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\Universit
 D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\UniversityDatabaseWithAdo.pdb
 D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\obj\Debug\UniversityDatabaseWithAdo.dll
 D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\obj\Debug\UniversityDatabaseWithAdo.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\UniversityDatabaseWithAdo.dll.config
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\UniversityDatabaseWithAdo.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\UniversityDatabaseWithAdo.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\obj\Debug\University.csprojAssemblyReference.cache
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\obj\Debug\University.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\obj\Debug\UniversityDatabaseWithAdo.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\obj\Debug\UniversityDatabaseWithAdo.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\DAOLib.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\EPPlus.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\DAOLib.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\EPPlus.xml
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\UniversityDatabaseWithAdo\obj\Debug\University.csproj.CopyComplete

@@ -35,8 +35,8 @@ namespace UserLayer
                 int i = 2;
                 foreach (var info in result)
                 {
-                    worksheet.Cells[i, 1].Value = info.GroupId;
-                    worksheet.Cells[i, 2].Value = info.StudentFio;
+                    worksheet.Cells[i, 1].Value = info.student.GroupId;
+                    worksheet.Cells[i, 2].Value = info.student.FIO;
                     worksheet.Cells[i, 3].Value = info.ExamId;
                     worksheet.Cells[i, 4].Value = info.NumberSession;
                     worksheet.Cells[i, 5].Value = info.Mark;
@@ -56,7 +56,7 @@ namespace UserLayer
             {
                 throw new NullReferenceException();
             }
-            var minMaxAvgGroup = result.Select(x => new { x.GroupId, x.NumberSession, x.ExamId, AvgMark = result.Where(y => y.NumberSession == x.NumberSession && y.GroupId == x.GroupId).Average(l => l.Mark), MaxMark = result.Where(z => z.NumberSession == x.NumberSession && z.GroupId == x.GroupId).Max(t => t.Mark), MinMark = result.Where(f => f.NumberSession == x.NumberSession && f.GroupId == x.GroupId).Min(q => q.Mark) });
+            var minMaxAvgGroup = result.Select(x => new { x.student.GroupId, x.NumberSession, x.ExamId, AvgMark = result.Where(y => y.NumberSession == x.NumberSession && y.student.GroupId == x.student.GroupId).Average(l => l.Mark), MaxMark = result.Where(z => z.NumberSession == x.NumberSession && z.student.GroupId == x.student.GroupId).Max(t => t.Mark), MinMark = result.Where(f => f.NumberSession == x.NumberSession && f.student.GroupId == x.student.GroupId).Min(q => q.Mark) });
             var toSave = minMaxAvgGroup.OrderBy(x => x.NumberSession).Distinct();
 
             using (ExcelPackage excelPackage = new ExcelPackage())

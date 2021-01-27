@@ -20,3 +20,29 @@ D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTes
 D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.csproj.CopyComplete
 D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.dll
 D:\Learn\EPAM\Task 6\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\DaoLibTests.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\DaoLibTests.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\DAOLib.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\UniversityDatabaseWithAdo.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\DAOLib.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\UniversityDatabaseWithAdo.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\UniversityDatabaseWithAdo.dll.config
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.csprojAssemblyReference.cache
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.csproj.CopyComplete
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\obj\Debug\DaoLibTests.pdb
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\EPPlus.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\EPPlus.xml
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DaoLibTests\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml

@@ -4,11 +4,21 @@ using System.Text;
 
 namespace DAOLib.SqlDao
 {
+    /// <summary>
+    /// A class that is used to create commands for interacting with the database
+    /// </summary>
     internal static class GetComandForTransactSql
     {
         private static StringBuilder builderForName = new StringBuilder();
         private static StringBuilder builderForParams = new StringBuilder();
 
+        /// <summary>
+        /// Method which is used for getting Delete command.
+        /// </summary>
+        /// <param name="tableName">Name of table in db.</param>
+        /// <param name="propertys">Array with propertyes of nessaty type</param>
+        /// <returns>Sql command as string.</returns>
+        /// <remarks>It is assumed that the column names match the names of the class properties.</remarks>
         internal static string GetDeleteItemComand(string tableName,PropertyInfo[] propertys)
         {
             string result;
@@ -27,6 +37,13 @@ namespace DAOLib.SqlDao
             return result;
         }
 
+        /// <summary>
+        /// Method which is used for getting Create command.
+        /// </summary>
+        /// <param name="tableName">Name of table in db.</param>
+        /// <param name="propertys">Array with propertyes of nessaty type</param>
+        /// <returns>Sql command as string.</returns>
+        /// <remarks>It is assumed that the column names match the names of the class properties.</remarks>
         internal static string GetCreateItemComand(string tableName, PropertyInfo[] propertys)
         {
 
@@ -51,7 +68,14 @@ namespace DAOLib.SqlDao
 
             return result;
         }
-        
+
+        /// <summary>
+        /// Method which is used for getting Update command.
+        /// </summary>
+        /// <param name="tableName">Name of table in db.</param>
+        /// <param name="propertys">Array with propertyes of nessaty type</param>
+        /// <returns>Sql command as string.</returns>
+        /// <remarks>It is assumed that the column names match the names of the class properties.</remarks>
         internal static string GetUpdateItemComand(string tableName, PropertyInfo[] propertys)
         {
 
@@ -80,7 +104,13 @@ namespace DAOLib.SqlDao
             return result;
         }
 
-        
+        /// <summary>
+        /// Method which is used for getting ReadAll command.
+        /// </summary>
+        /// <param name="tableName">Name of table in db.</param>
+        /// <param name="propertys">Array with propertyes of nessaty type</param>
+        /// <returns>Sql command as string.</returns>
+        /// <remarks>It is assumed that the column names match the names of the class properties.</remarks>
         internal static string GetReadAllComand(string tableName, PropertyInfo[] propertys)
         {
 
