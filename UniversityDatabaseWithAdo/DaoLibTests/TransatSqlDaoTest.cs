@@ -13,6 +13,8 @@ namespace DaoLibTests
     ///////                     The scripts are located in the scripts for database deployment folder                    //////
     ///////                                           !!!ATTENTION -- 2!!!                                               //////                       
     ///////If necessary change the database "connectionString" in the static constructor of the TransatSqlDaoTest class  //////
+    ///////                                           !!!ATTENTION -- 3!!!                                               //////
+    ///////You alse have to change connectionString in InteractionOfComomnInfoAndDatabseBaseTests class and  //////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     [TestClass]
@@ -21,7 +23,7 @@ namespace DaoLibTests
         private static string connectionString;
         static TransatSqlDaoTest()
         {
-            connectionString = @"Data Source=.\SQLEXPRESS; Initial Catalog=UniversityDatabase; Integrated Security=True";
+            connectionString = ConnectionString.connectionString;
         }
 
         [DataTestMethod]

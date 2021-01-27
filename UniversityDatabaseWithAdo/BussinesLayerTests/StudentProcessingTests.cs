@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using University;
 namespace BussinesLayerTests
 {
@@ -28,14 +28,14 @@ namespace BussinesLayerTests
             Assert.IsTrue(actual);
         }
         [TestMethod]
-        public void ExtractStudentsForExpulsionTest_NullList_NUllRefernceExceptionThrown()
+        public void ExtractStudentsForExpulsionTest_NullList_ArgumentNullExceptionThrown()
         {
             bool actual = false;
             try
             {
                 StudentProcessing.ExtractStudentsForExpulsion(null);
             }
-            catch(NullReferenceException)
+            catch(ArgumentNullException)
             {
                 actual = true;
             }

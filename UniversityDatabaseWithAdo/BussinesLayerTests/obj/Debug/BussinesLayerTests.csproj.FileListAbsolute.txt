@@ -48,3 +48,5 @@ D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\Bu
 D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\BussinesLayerTests\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
 D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\BussinesLayerTests\bin\Debug\EPPlus.xml
 D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\BussinesLayerTests\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\BussinesLayerTests\bin\Debug\DaoLibTests.dll
+D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\BussinesLayerTests\bin\Debug\DaoLibTests.pdb

@@ -63,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DaoLibTests\DaoLibTests.csproj">
+      <Project>{c46c6130-77b5-41f1-b9c5-4f224f95704c}</Project>
+      <Name>DaoLibTests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAOLib\DAOLib.csproj">
       <Project>{b05dfa19-fd5d-48aa-bc22-92e630e68d6b}</Project>
       <Name>DAOLib</Name>

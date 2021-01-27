@@ -27,14 +27,12 @@ create table Student
 
 	Id int Identity,
 	FIO nvarchar(50) not null,
-	Sex nvarchar(1) not null,
+	Sex nvarchar(5) not null,
 	BirthDay date not null,
 	GroupId int not null
 
 	constraint PK_StudentPk Primary key(Id),
 	constraint CH_FIOCk Check(LEN(FIO)>5),
-	constraint CK_SexCk Check(Sex in ('M','F')),
-	constraint CK_BirthDayCk check(BirthDay>'1900-01-01' and BirthDay<'2100-01-01'),
 	constraint FK_StudentFk Foreign key(GroupId) references GroupOfStudent(Id) on delete cascade on update cascade
 )
 

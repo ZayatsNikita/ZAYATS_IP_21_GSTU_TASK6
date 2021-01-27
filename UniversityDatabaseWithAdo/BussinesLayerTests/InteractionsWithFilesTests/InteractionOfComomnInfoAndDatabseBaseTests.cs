@@ -1,4 +1,5 @@
-﻿using InteractionOfTheDatabaseAndTheUniversity;
+﻿using DaoLibTests;
+using InteractionOfTheDatabaseAndTheUniversity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace BussinesLayerTests
     [TestClass]
     public class InteractionOfComomnInfoAndDatabseBaseTests
     {
-        private static string connectionString = @"Data Source=.\SQLEXPRESS; Initial Catalog=UniversityDatabase; Integrated Security=True";
+        private static string connectionString = ConnectionString.connectionString;
         [TestMethod]
         public void GetCommonInfoFromDatabase_DataInDataBase_ListWithCommonInfo()
         {

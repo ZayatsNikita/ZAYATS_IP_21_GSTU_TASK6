@@ -29,7 +29,7 @@ namespace BussinesLayerTests
             {
                 Exam info = new Exam() { NameOfExam = null };
             }
-            catch (NullReferenceException)
+            catch (ArgumentNullException)
             {
                 actual = true;
             }

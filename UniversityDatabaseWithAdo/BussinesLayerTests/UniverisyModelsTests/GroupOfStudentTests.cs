@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using University;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BussinesLayerTests
 {
     [TestClass]
@@ -25,14 +21,14 @@ namespace BussinesLayerTests
             Assert.IsTrue(actual);
         }
         [TestMethod]
-        public void NameOfGroupTest_NullISSetASName_ArgumentExceptionThrown()
+        public void NameOfGroupTest_NullISSetASName_ArgumentNullExceptionThrown()
         {
             bool actual = false;
             try
             {
                 GroupOfStudent info = new GroupOfStudent() { NameOfGroup = null };
             }
-            catch (NullReferenceException)
+            catch (ArgumentNullException)
             {
                 actual = true;
             }

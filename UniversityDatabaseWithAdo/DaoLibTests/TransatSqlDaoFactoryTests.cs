@@ -8,7 +8,7 @@ namespace DaoLibTests
 
     class TransatSqlDaoFactoryTests
     {
-        private static string connectionString = @"Data Source=.\SQLEXPRESS; Initial Catalog=InteractionOfComomnInfoAndDatabseBaseTest; Integrated Security=True";
+        private static string connectionString = ConnectionString.connectionString;
 
         [TestMethod]
         public void CreateDaoTest_NullLenghtStringIsSetAsConnectionsString_ArgumentExceptionThrown()
