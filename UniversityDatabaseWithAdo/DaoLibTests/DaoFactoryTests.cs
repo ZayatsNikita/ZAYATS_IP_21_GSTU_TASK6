@@ -14,7 +14,7 @@ namespace DaoLibTests
         public void CreateDaoTest_NotExsistDaoName_ArgumentExceptionThrown(string str)
         {
             bool actual = false;
-            DaoFactory<CommonInfo> daoFactory = new DaoFactory<CommonInfo>();
+            DaoFactory<ReportingReport> daoFactory = new DaoFactory<ReportingReport>();
             try
             {
                 daoFactory.CreateDao(str, "str");

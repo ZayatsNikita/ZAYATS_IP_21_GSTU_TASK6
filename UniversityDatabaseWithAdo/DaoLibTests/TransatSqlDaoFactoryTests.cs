@@ -24,7 +24,7 @@ namespace DaoLibTests
         public void CreateDaoTest_NullLenghtStringIsSetAsConnectionsString_ArgumentExceptionThrown()
         {
             bool actual = false;
-            DaoFactory<CommonInfo> daoFactory = new DaoFactory<CommonInfo>();
+            DaoFactory<ReportingReport> daoFactory = new DaoFactory<ReportingReport>();
             try
             {
                 daoFactory.CreateDao("TransatSqlDao", "");
@@ -39,7 +39,7 @@ namespace DaoLibTests
         public void CreateDaoTest_NullIsSetAsConnectionsString_NullReferenceExceptionThrown()
         {
             bool actual = false;
-            DaoFactory<CommonInfo> daoFactory = new DaoFactory<CommonInfo>();
+            DaoFactory<ReportingReport> daoFactory = new DaoFactory<ReportingReport>();
             try
             {
                 daoFactory.CreateDao("TransatSqlDao", null);
@@ -54,8 +54,8 @@ namespace DaoLibTests
         public void CreateDao_CorrectParams_ExceptionWillBeNotThrown()
         {
             bool actual = true;
-            IDao<CommonInfo> dao=null;
-            DaoFactory<CommonInfo> daoFactory = new DaoFactory<CommonInfo>();
+            IDao<ReportingReport> dao=null;
+            DaoFactory<ReportingReport> daoFactory = new DaoFactory<ReportingReport>();
             try
             {
                 dao = daoFactory.CreateDao("TransatSqlDao", connectionString);
@@ -64,7 +64,6 @@ namespace DaoLibTests
             {
                 actual = false;
             }
-            dao.CloseConnect();
             Assert.IsTrue(actual);
         }
     }

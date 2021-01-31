@@ -74,16 +74,7 @@ namespace InteractionOfTheDatabaseAndTheUniversity
             return commons;
         }
 
-        /// <summary>
-        /// Method wich is used for closing connection to database.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">Thrown if connection is already closed.</exception>
-        public static void CloseConnections()
-        {
-            studentDao.CloseConnect();
-            examInfoDao.CloseConnect();
-            studentSessionIfnoDao.CloseConnect();
-        }
+       
         
     }
 }

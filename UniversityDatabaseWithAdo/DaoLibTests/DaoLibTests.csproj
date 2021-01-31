@@ -51,6 +51,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="XlsxDaoTests.cs" />
     <Compile Include="ConnectionString.cs" />
     <Compile Include="TransatSqlDaoFactoryTests.cs" />
     <Compile Include="DaoFactoryTests.cs" />

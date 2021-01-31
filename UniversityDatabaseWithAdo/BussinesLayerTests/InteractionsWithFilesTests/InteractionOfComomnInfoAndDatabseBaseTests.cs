@@ -34,7 +34,6 @@ namespace BussinesLayerTests
                 && list.Count(z=>z.Mark == 8 && z.StudentFio == "Pishuck Alex Igoreevna" && z.ExamId == 1 && z.StudentId == 2 && z.NumberSession == 3)==1
                 && list.Count(i=>i.Mark == 7 && i.StudentFio == "Tsmyg Dmitry Alexandrovich" && i.ExamId == 2 && i.StudentId == 3 && i.NumberSession == 4)==1
                 && list.Count(i=>i.Mark == 3 && i.StudentFio == "Tsmyg Dmitry Alexandrovich" && i.ExamId == 2 && i.StudentId == 3 && i.NumberSession == 5)==1;
-            InteractionOfComomnInfoAndDatabseBase.CloseConnections();
             Assert.IsTrue(actual);
         }
     }

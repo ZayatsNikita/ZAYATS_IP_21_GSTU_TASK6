@@ -61,16 +61,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InteractionsWithFiles\CommonInfoXlsxFileManager.cs" />
-    <Compile Include="InteractionsWithFiles\InteractionOfComomnInfoAndDatabseBase.cs" />
+    <Compile Include="InteractionsWithFiles\ReportsXlsxFileManager.cs" />
+    <Compile Include="InteractionsWithFiles\InteractionReportsAndDatabseBase.cs" />
     <Compile Include="Processing\ProcessingOfModels\StudentProcessing.cs" />
-    <Compile Include="ModelsInfo\UniversitySessionInfo.cs" />
-    <Compile Include="ModelsInfo\ExamInfo.cs" />
-    <Compile Include="ModelsInfo\StudentSessionIfno.cs" />
-    <Compile Include="ModelsInfo\CommonInfo.cs" />
-    <Compile Include="Models\Exam.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\GroupOfStudent.cs" />
+    <Compile Include="Entities\ModelsInfo\UniversitySessionInfo.cs" />
+    <Compile Include="Entities\ModelsInfo\ExamInfo.cs" />
+    <Compile Include="Entities\ModelsInfo\StudentSessionIfno.cs" />
+    <Compile Include="Entities\ModelsInfo\ReportingReport.cs" />
+    <Compile Include="Entities\Models\Exam.cs" />
+    <Compile Include="Entities\Models\Student.cs" />
+    <Compile Include="Entities\Models\GroupOfStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Data;
 
 namespace DAOLib.SqlDao
 {
@@ -16,7 +17,7 @@ namespace DAOLib.SqlDao
         private static SqlParameter[] parameters;
         private static SqlParameter[] newParameters;
         private static PropertyInfo[] propertys;
-
+        private static PropertyInfo idProperty;
         
         private string createItemComandText;
         private string deleteItemComandText;
@@ -30,8 +31,8 @@ namespace DAOLib.SqlDao
         /// <exception cref="ArgumentException">Thrown if T type have no propetyes.</exception>
         private TransactSqlDao(SqlConnection connection)
         {
-
-            if(connection == null)
+            idProperty = null;
+            if (connection == null)
             {
                 throw new ArgumentNullException();
             }
@@ -51,6 +52,10 @@ namespace DAOLib.SqlDao
             
             for (int i = 0; i < propertys.Length; i++)
             {
+                if(propertys[i].Name.ToLower()=="id")
+                {
+                    idProperty = propertys[i];
+                }
                 parameters[i] = new SqlParameter();
                 newParameters[i] = new SqlParameter();
 
@@ -74,28 +79,31 @@ namespace DAOLib.SqlDao
         /// <exception cref="ArgumentNullException">Thrown if element is null.</exception>
         /// <exception cref="InvalidOperationException">Thrown if connection to database is closed.</exception>
         /// <exception cref="SqlException">Thrown if an error occurred on the db server.</exception>
-        public object Create(T element)
+        public void Create(T element)
         {
-            if (connection.State == System.Data.ConnectionState.Open)
+            if (connection.State == ConnectionState.Closed)
             {
-                if (element == null)
-                {
-                    throw new ArgumentNullException();
-                }
-                command.Parameters.Clear();
-                for (int i = 0; i < parameters.Length; i++)
-                {
-                    parameters[i].Value = propertys[i].GetValue(element, null);
-
-                }
-                command.CommandText = createItemComandText;
-                command.Parameters.AddRange(parameters);
-                object obj = command.ExecuteScalar();
-                return obj;
+                connection.Open();
             }
-            else
+            if (element == null)
             {
-                throw new InvalidOperationException();
+                throw new ArgumentNullException();
+            }
+            command.Parameters.Clear();
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                parameters[i].Value = propertys[i].GetValue(element, null);
+            }
+            command.CommandText = createItemComandText;
+            command.Parameters.AddRange(parameters);
+            object obj = command.ExecuteScalar();
+            
+
+            idProperty?.SetValue(element,Convert.ToInt32(obj));
+
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
             }
         }
 
@@ -108,24 +116,25 @@ namespace DAOLib.SqlDao
         /// <exception cref="SqlException">Thrown if an error occurred on the db server.</exception>
         public void Delete(T element)
         {
-            if (connection.State == System.Data.ConnectionState.Open)
+            if (element == null)
             {
-                if (element == null)
-                {
-                    throw new ArgumentNullException();
-                }
-                command.Parameters.Clear();
-                for (int i = 0; i < parameters.Length; i++)
-                {
-                    parameters[i].Value = propertys[i].GetValue(element, null);
-                }
-                command.CommandText = deleteItemComandText;
-                command.Parameters.AddRange(parameters);
-                command.ExecuteNonQuery();
+                throw new ArgumentNullException();
             }
-            else
+            if (connection.State == ConnectionState.Closed)
             {
-                throw new InvalidOperationException();
+                connection.Open();
+            }
+            command.Parameters.Clear();
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                parameters[i].Value = propertys[i].GetValue(element, null);
+            }
+            command.CommandText = deleteItemComandText;
+            command.Parameters.AddRange(parameters);
+            command.ExecuteNonQuery();
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
             }
         }
 
@@ -137,10 +146,11 @@ namespace DAOLib.SqlDao
         /// <exception cref="SqlException">Thrown if an error occurred on the db server.</exception>
         public List<T> ReadAll()
         {
-            if (connection.State == System.Data.ConnectionState.Open)
+            if (connection.State == ConnectionState.Closed)
             {
-
-                command.Parameters.Clear();
+                connection.Open();
+            }
+            command.Parameters.Clear();
                
                 List<T> result = new List<T>();
                 SqlDataReader reader = null;
@@ -166,12 +176,11 @@ namespace DAOLib.SqlDao
                 {
                     reader?.Close();
                 }
-                return result;
-            }
-            else
+            if (connection.State == ConnectionState.Open)
             {
-                throw new InvalidOperationException();
+                connection.Close();
             }
+            return result;
         }
         /// <summary>
         /// A method that replaces old data in the database with new data.
@@ -183,9 +192,11 @@ namespace DAOLib.SqlDao
         /// <exception cref="SqlException">Thrown if an error occurred on the db server.</exception>
         public void Update(T oldElement, T newElement)
         {
-            if (connection.State == System.Data.ConnectionState.Open)
+            if (connection.State == ConnectionState.Closed)
             {
-                if(oldElement== null || newElement==null)
+                connection.Open();
+            }
+            if (oldElement== null || newElement==null)
                 {
                     throw new ArgumentNullException();
                 }
@@ -199,10 +210,9 @@ namespace DAOLib.SqlDao
                 command.Parameters.AddRange(newParameters);
                 command.CommandText = updateComandText;
                 command.ExecuteNonQuery();
-            }
-            else
+            if (connection.State == ConnectionState.Open)
             {
-                throw new InvalidOperationException();
+                connection.Close();
             }
         }
 
@@ -218,7 +228,6 @@ namespace DAOLib.SqlDao
                 try
                 {
                     TransactSqlDao<T>.connection = connection;
-                    TransactSqlDao<T>.connection.Open();
                     TransactSqlDao<T>.instance = new TransactSqlDao<T>(connection);         
                 }
                 catch (Exception ex)
@@ -230,20 +239,6 @@ namespace DAOLib.SqlDao
             return TransactSqlDao<T>.instance;
         }
 
-        /// <summary>
-        /// Method wich is used for closing connection to database.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">Thrown if connection is already closed.</exception>
-        public void CloseConnect()
-        {
-            if (connection.State == System.Data.ConnectionState.Open)
-            {
-                connection.Close();
-            }
-            else
-            {
-                throw new InvalidOperationException();
-            }
-        }
+       
     }
 }

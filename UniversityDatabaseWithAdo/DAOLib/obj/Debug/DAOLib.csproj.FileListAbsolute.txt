@@ -14,3 +14,15 @@ D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DA
 D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.csproj.CoreCompileInputs.cache
 D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.dll
 D:\Learn\EPAM\Task 6 remake\ZAYATS_IP_21_GSTU_TASK6\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.pdb
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\bin\Debug\DAOLib.dll
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\bin\Debug\DAOLib.pdb
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.csprojAssemblyReference.cache
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.csproj.CoreCompileInputs.cache
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.dll
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.pdb
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\bin\Debug\EPPlus.dll
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\bin\Debug\EPPlus.xml
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+D:\Learn\EPAM\Арфхивы с гитхаюа\ZAYATS_IP_21_GSTU_TASK6-main\UniversityDatabaseWithAdo\DAOLib\obj\Debug\DAOLib.csproj.CopyComplete

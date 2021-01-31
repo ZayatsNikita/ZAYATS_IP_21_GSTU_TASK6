@@ -49,13 +49,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InteractionsWithFilesTests\CommonInfoXlsxFileManager.cs" />
-    <Compile Include="UniverisyModelsTests\CommonInfoTests.cs" />
+    <Compile Include="InteractionsWithFilesTests\ReportsXlsxFileManagerTests.cs" />
+    <Compile Include="UniverisyModelsTests\ReportingReportTests.cs" />
     <Compile Include="UniverisyModelsTests\ExamTests.cs" />
     <Compile Include="UniverisyModelsTests\ExamInfoTests.cs" />
     <Compile Include="UniverisyModelsTests\GroupOfStudentTests.cs" />
     <Compile Include="UniverisyModelsTests\StudentsTests.cs" />
-    <Compile Include="InteractionsWithFilesTests\InteractionOfComomnInfoAndDatabseBaseTests.cs" />
+    <Compile Include="InteractionsWithFilesTests\InteractionReportsAndDatabseBaseTests.cs" />
     <Compile Include="StudentProcessingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,14 +8,14 @@ namespace BussinesLayerTests
     [TestClass]
     public class StudentProcessingTests
     {
-        private static List<CommonInfo> list = new List<CommonInfo>() {
+        private static List<ReportingReport> list = new List<ReportingReport>() {
             
-            new CommonInfo(1,1,"Karp Alex DD","F",DateTime.Now,1,1,3), 
-            new CommonInfo(2,2,"NIkita Valer Gnusov","M",DateTime.Now,3,1,2),
-            new CommonInfo(1,3,"MOyva JJu DD","M",DateTime.Now,1,1,10),
-            new CommonInfo(2,4,"Prerk Tuk Tuc","F",DateTime.Now,2,1,8), 
-            new CommonInfo(3,5,"Munsd sdhf dfkj","F",DateTime.Now,2,3,8),
-            new CommonInfo(3,6,"Larisa JJJ Ddsf","M",DateTime.Now,2,1,2),
+            new ReportingReport(1,1,"Karp Alex DD","F",DateTime.Now,1,1,3), 
+            new ReportingReport(2,2,"NIkita Valer Gnusov","M",DateTime.Now,3,1,2),
+            new ReportingReport(1,3,"MOyva JJu DD","M",DateTime.Now,1,1,10),
+            new ReportingReport(2,4,"Prerk Tuk Tuc","F",DateTime.Now,2,1,8), 
+            new ReportingReport(3,5,"Munsd sdhf dfkj","F",DateTime.Now,2,3,8),
+            new ReportingReport(3,6,"Larisa JJJ Ddsf","M",DateTime.Now,2,1,2),
             };
         [TestMethod]
         public void ExtractStudentsForExpulsionTest_ThrereAre3Student_DictionaryWithStudentsAndGroup()
@@ -47,7 +47,7 @@ namespace BussinesLayerTests
             bool actual = false;
             try
             {
-                StudentProcessing.ExtractStudentsForExpulsion(new List<CommonInfo>());
+                StudentProcessing.ExtractStudentsForExpulsion(new List<ReportingReport>());
             }
             catch (ArgumentException)
             {

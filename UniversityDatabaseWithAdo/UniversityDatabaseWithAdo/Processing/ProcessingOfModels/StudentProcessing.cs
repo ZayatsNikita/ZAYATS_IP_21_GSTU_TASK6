@@ -16,7 +16,7 @@ namespace University
         /// <returns>A dictionary in which the group code corresponds to a list of students from this group who should be expelled.</returns>
         /// <exception cref="ArgumentException">Throw if commonInfo param has no alements.</exception>
         /// <exception cref="ArgumentNullException">Throw if commonInfo is null or there are elements with null value.</exception>
-        public static Dictionary<int, List<Student>> ExtractStudentsForExpulsion(List<CommonInfo> commonInfo)
+        public static Dictionary<int, List<Student>> ExtractStudentsForExpulsion(List<ReportingReport> commonInfo)
         {
             if (commonInfo == null)
             {

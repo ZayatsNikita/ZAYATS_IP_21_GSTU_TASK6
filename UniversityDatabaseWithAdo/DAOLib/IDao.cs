@@ -13,7 +13,7 @@ namespace DAOLib
         /// </summary>
         /// <param name="element">The object whose information will be recorded.</param>
         /// <returns>A parameter defined by a specific Dao class.</returns>
-        public object Create(T element);
+        public void Create(T element);
         /// <summary>
         /// A method that reads all the information from the storage.
         /// </summary>
@@ -31,9 +31,6 @@ namespace DAOLib
         /// </summary>
         /// <param name="element">A data object which should be removed from the storage.</param>
         public void Delete(T element);
-        /// <summary>
-        /// A method that can be used to close a storage connection if necessary.
-        /// </summary>
-        public void CloseConnect();
+       
     }
 }
